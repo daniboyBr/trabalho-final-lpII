@@ -4,13 +4,12 @@
 import cgi
 import cgitb
 import csv
-import json
 cgitb.enable()
 
 def escrever(linha):
     arquivo = open("cgi-bin/inscricoes.csv", "a")
     escrever = csv.writer(arquivo, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    escrever.writerow([nome])
+    escrever.writerow([linha])
     arquivo.close()
 
 def registro_existe(registro):
@@ -18,7 +17,7 @@ def registro_existe(registro):
     ler = csv.reader(arquivo)
     registro_existe = False
     for linha in ler:
-        if (linha[0] == nome):
+        if (linha[0] == registro):
             registro_existe = True
             break
     arquivo.close()
