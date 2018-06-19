@@ -4,6 +4,7 @@
 import cgi
 import cgitb
 import csv
+import json
 cgitb.enable()
 
 def escrever(linha):
@@ -30,11 +31,12 @@ print()
 print('<h1>Resultado</h1>')
 try:
     nome = input_data["nome"].value
+    msg = ''
     if (registro_existe(nome)):
-        print('<p>O registro que está tentando inserir já existe</p>')
+        msg = {'msg': 'O registro que está tentando inserir já existe'}
     else:
         escrever(nome)
-        print('<p>Registro salvo com sucesso</p>')
-
+        msg = {'msg':'Registro salvo com sucesso'}
+    print(msg['msg'])
 except:
     print("Não foi possivel buscar a infomação solicitada")
