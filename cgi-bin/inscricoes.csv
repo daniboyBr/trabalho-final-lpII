@@ -1,3 +1,4 @@
-Nome
-Daniel
-Flavia
+Nome,Idade,E-mail,Telefone,Matricula,Curso,Turno,Campus
+Flavia,24,teste@teste.com,12312312,123412341,1,1,Brasília
+Flavia,24,teste@teste.com,12312312,123412341,1,1,Brasília
+Flavia;24;teste@teste.com;12312312;123412341;1;1;Brasília

@@ -1,18 +1,101 @@
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trabalho de LPII</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Formulário</title>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
 </head>
-<body>
-    <p>Hello World</p>
-    <form action="cgi-bin/arquivo.py" method="post">
-        <label>Nome: </label>
-        <input type="text" name="nome" id="nome">
-        <button type="submit">Enviar</button>
-    </form>
+
+<body class="grey lighten-2">
+    <div class="formulario" >
+        <div class="row">
+            <div class="col s12 m12 ">
+                <div class="card-panel  hoverable">
+                    <h3>Cadastro conecta if <span  class="red-text text-accent-4">!</span></h3>
+                    <form class="col s12" method="POST" action="cgi-bin/arquivo.py">
+
+                        <div class="input-field col s12">
+                            <input id="nome" name="nome" type="text" class="validate">
+                            <label for="nome">Nome completo
+                                <span class="red-text">*</span>
+                            </label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="idade" name="idade" type="number" class="validate">
+                            <label for="idade">Idade
+                                <span class="red-text">*</span>
+                            </label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="email" type="email" name="email" class="validate">
+                            <label for="email">Endereço de email
+                                <span class="red-text">*</span>
+                            </label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="telefone" type="tel" name="telefone" class="validate">
+                            <label for="telefone">Número de telefone
+                                <span class="red-text">*</span>
+                            </label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="matricula" type="text" name="matricula" class="validate">
+                            <label for="matricula">Digite sua matrícula
+                                <span class="red-text">*</span>
+                            </label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select name="curso">
+                                <option value="" disabled selected>Escolha seu curso</option>
+                                <option value="1">Curso 1</option>
+                                <option value="2">Curso 2</option>
+                                <option value="3">Curso 3</option>
+                            </select>
+                            <label>Curso
+                                <span class="red-text">*</span>
+                            </label>
+                        </div>
+                        <div class="input-field col s12">
+                            <select name="turno">
+                                <option value="" disabled selected>Escolha seu turno</option>
+                                <option value="1">matutino</option>
+                                <option value="2">vespertino</option>
+                                <option value="3">noturno</option>
+                            </select>
+                            <label>Turno
+                                <span class="red-text">*</span>
+                            </label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input type="text" id="autocomplete-input" name="campus" class="autocomplete">
+                            <label for="autocomplete-input">Informe seu campus
+                                <span class="red-text">*</span>
+                            </label>
+                        </div>
+                        <br>
+                        <p class="grey-text">Campos com "*" são obrigatórios !!</p>
+                        <br>
+                        <button class="btn waves-effect waves-light light-green darken-3" type="submit" name="action">Enviar
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
