@@ -23,26 +23,49 @@ def registro_existe(registro):
     arquivo.close()
     return registro_existe
 
+def campos_em_branco(registro):
+    campos = ['nome','idade','email','telefone','matricula','curso','turno','campus']
+    branco = False
+    for campo in campos:
+        input = registro[campo].value
+        input = input.strip()
+        if (len(input) == 0):
+            branco = True
+            break
+    return branco
+
 input_data = cgi.FieldStorage()
 
 print('Content-Type:text/html; charset=utf-8')
 print()
-print('<h1>Resultado</h1>')
 try:
-    usuario = [
-        input_data["nome"].value,
-        int(input_data["idade"].value),
-        input_data["email"].value,
-        input_data["telefone"].value,
-        input_data["matricula"].value,
-        input_data["curso"].value,
-        input_data["turno"].value,
-        input_data["campus"].value
-    ]
-    print(usuario)
-    escrever(usuario)
+    if (len(input_data) == 8):
+        if(campos_em_branco(input_data)):
+            print("Campos obrigatorios nao preenchidos.")     
+        else:
+            print("Não possui campos em branco")
+    else:
+        print("Alguns campos não foram enviados ou nao preenchidos")
+
+
+
+
 
     '''
+        usuario = [
+            input_data["nome"].value,
+            int(input_data["idade"].value),
+            input_data["email"].value,
+            input_data["telefone"].value,
+            input_data["matricula"].value,
+            input_data["curso"].value,
+            input_data["turno"].value,
+            input_data["campus"].value
+        ]
+        
+        print('<h1>Resultado</h1>')
+        print(usuario)
+        escrever(usuario)
         msg = ''
         if (registro_existe(nome)):
             msg = {'msg': 'O registro que está tentando inserir já existe'}
