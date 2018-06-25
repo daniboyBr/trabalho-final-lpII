@@ -7,26 +7,26 @@ import csv
 cgitb.enable()
 
 """
-    Metodo recebe um registro e abre o arquivo para leitura escrevendo o registro nele
+    Metodo recebe um registro e abre o arquivo para escrita escrevendo o registro nele
 """
 def escrever(registro):
-    arquivo = open("cgi-bin/inscricoes.csv", "a", newline="")
-    escrever = csv.writer(arquivo, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    escrever.writerow(registro)
-    arquivo.close()
+    arquivo = open("cgi-bin/inscricoes.csv", "a", newline="") #abre o arquivo para escrita para atualizacao com a proxima linha em branco
+    escrever = csv.writer(arquivo, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL) #prepara o arquivo para ser escrito
+    escrever.writerow(registro) #escreve registro na ultima linha do arquivo
+    arquivo.close() #fecha o arquivo
 
 """
     Metodo verifica se o registro existe, abrindo o arquivo para leitura e comparando com o registro enviado
 """
 def registro_existe(registro):
-    arquivo = open("cgi-bin/inscricoes.csv", "r")
-    ler = csv.reader(arquivo)
+    arquivo = open("cgi-bin/inscricoes.csv", "r") #abre o arquvivo em modo de leitura
+    ler = csv.reader(arquivo) #ler o arquivo e salva na variavel
     registro_existe = False
-    for linha in ler:
-        if (linha[4] == registro[4]):
+    for linha in ler: #percorre cada linha do arquvivo
+        if (linha[4] == registro[4]): #verifica se o registro recebido é igual ao registro existente no arquivo
             registro_existe = True
             break
-    arquivo.close()
+    arquivo.close()#fecha o arquivo
     return registro_existe
 
 """
